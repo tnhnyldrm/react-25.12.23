@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel';
 
 
-function ProductDetail(props,{ images }) {
+function ProductDetail(props, { images }) {
     const [productDetail, setProductDetail] = useState([]);
     let { id } = useParams();
 
@@ -25,13 +25,19 @@ function ProductDetail(props,{ images }) {
                     <div className="card">
                         {productDetail && (
                             <>
-                                <img
-                                    src={productDetail.thumbnail}
-                                    className="card-img-top img-fluid"
-                                    alt={productDetail.title}
-                                    style={{ maxWidth: "100%", margin: "0 auto" }}
-                                />
-                                
+                                <div className="container">
+                                    <Carousel>
+                                        {productDetail && productDetail.images &&productDetail.images.map((image, index) => (
+                                            <Carousel.Item key={index}>
+                                                <img
+                                                    className="d-block w-100"
+                                                    src={image}
+                                                />
+                                            </Carousel.Item>
+                                        ))}
+                                    </Carousel>
+                                </div>
+
                                 <div className="card-body">
                                     <h1 className="card-title">{productDetail.title}</h1>
                                     <h5 className="card-text">{productDetail.description}</h5>
