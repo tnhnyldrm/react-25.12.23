@@ -45,7 +45,7 @@ const ProductAdd = () => {
                             <input type="text" name='price' className="form-control" title="price" value={product.price} onChange={handleProductChange} />
                         </div>
 
-                        <button type="submit" className="btn btn-primary mt-2">Kaydet</button>
+                        <button type="submit" className="btn btn-primary mt-2"onClick={handleAddProduct}>Kaydet</button>
                     </form>
 
                 </div>
